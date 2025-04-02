@@ -1,8 +1,8 @@
-import { defineStore } from "pinia";
-import _ from "lodash";
-import { EDrawerTitleType } from "@/constants";
+import { defineStore } from 'pinia';
+import _ from 'lodash';
+import { EDrawerTitleType } from '@/constants';
 
-export const useQuestionTypeStore = defineStore("questionType", {
+export const useQuestionTypeStore = defineStore('questionType', {
   state: (): IState => ({
     type: 0,
     visible: {

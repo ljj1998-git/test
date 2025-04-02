@@ -48,9 +48,9 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from "@/stores";
-import { SettingsOutline } from "@vicons/ionicons5";
+  import { useAppStore } from '@/stores';
+  import { SettingsOutline } from '@vicons/ionicons5';
 
-const { setLayout } = useAppStore();
-const { primaryColor, layout } = storeToRefs(useAppStore());
+  const { setLayout } = useAppStore();
+  const { primaryColor, layout } = storeToRefs(useAppStore());
 </script>

@@ -17,50 +17,48 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  extraHeight: {
-    type: Number,
-    default: 0,
-  },
-});
+  const props = defineProps({
+    extraHeight: {
+      type: Number,
+      default: 0,
+    },
+  });
 
-const boxRef = ref(null);
-const titleRef = ref(null);
-const contentRef = ref(null);
+  const boxRef = ref(null);
+  const titleRef = ref(null);
+  const contentRef = ref(null);
 
-const contentHeight = ref(0);
-// 计算content高度
-const calculateContentHeight = () => {
-  if (contentRef.value) {
-    const boxHeight = getComputedStyle(boxRef.value!).height;
-    const titleHeight = getComputedStyle(titleRef.value!).height;
-    const titleMarginBottom = getComputedStyle(titleRef.value!).marginBottom;
-    const contentPaddingTop = getComputedStyle(contentRef.value!).paddingTop;
-    const contentPaddingBottom = getComputedStyle(
-      contentRef.value!
-    ).paddingBottom;
-    contentHeight.value =
-      Number(boxHeight.replace("px", "")) -
-      Number(titleHeight.replace("px", "")) -
-      Number(titleMarginBottom.replace("px", "")) -
-      Number(contentPaddingTop.replace("px", "")) -
-      Number(contentPaddingBottom.replace("px", "")) -
-      props.extraHeight;
-  }
-};
+  const contentHeight = ref(0);
+  // 计算content高度
+  const calculateContentHeight = () => {
+    if (contentRef.value) {
+      const boxHeight = getComputedStyle(boxRef.value!).height;
+      const titleHeight = getComputedStyle(titleRef.value!).height;
+      const titleMarginBottom = getComputedStyle(titleRef.value!).marginBottom;
+      const contentPaddingTop = getComputedStyle(contentRef.value!).paddingTop;
+      const contentPaddingBottom = getComputedStyle(contentRef.value!).paddingBottom;
+      contentHeight.value =
+        Number(boxHeight.replace('px', '')) -
+        Number(titleHeight.replace('px', '')) -
+        Number(titleMarginBottom.replace('px', '')) -
+        Number(contentPaddingTop.replace('px', '')) -
+        Number(contentPaddingBottom.replace('px', '')) -
+        props.extraHeight;
+    }
+  };
 
-const windowStyle = useWindowSize();
-watch(
-  () => windowStyle,
-  () => {
+  const windowStyle = useWindowSize();
+  watch(
+    () => windowStyle,
+    () => {
+      calculateContentHeight();
+    },
+    {
+      immediate: true,
+      deep: true,
+    }
+  );
+  onMounted(() => {
     calculateContentHeight();
-  },
-  {
-    immediate: true,
-    deep: true,
-  }
-);
-onMounted(() => {
-  calculateContentHeight();
-});
+  });
 </script>

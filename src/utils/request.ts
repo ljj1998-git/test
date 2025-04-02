@@ -1,10 +1,5 @@
 // src/utils/http.ts
-import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  AxiosError,
-} from "axios";
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 
 interface CustomRequestConfig extends AxiosRequestConfig {
   _retryCount?: number; // 当前重试次数
@@ -32,11 +27,11 @@ class HttpRequest {
 
     // 请求拦截器
     this.service.interceptors.request.use(
-      (config) => {
+      config => {
         // 注入token
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem('token');
         if (token) {
-          config.headers!["Authorization"] = `Bearer ${token}`;
+          config.headers!['Authorization'] = `Bearer ${token}`;
         }
         return config;
       },
@@ -62,10 +57,7 @@ class HttpRequest {
         }
 
         // 网络错误或超时自动重试
-        if (
-          !originalConfig?._retryCount &&
-          (error.code === "ECONNABORTED" || !error.response)
-        ) {
+        if (!originalConfig?._retryCount && (error.code === 'ECONNABORTED' || !error.response)) {
           return this.retryRequest(originalConfig);
         }
 
@@ -89,9 +81,7 @@ class HttpRequest {
   }
 
   // 处理token过期
-  private async handleTokenExpired(
-    originalConfig: CustomRequestConfig
-  ): Promise<any> {
+  private async handleTokenExpired(originalConfig: CustomRequestConfig): Promise<any> {
     try {
       // const newToken = await this.refreshToken();
       // localStorage.setItem("token", newToken);
@@ -99,7 +89,7 @@ class HttpRequest {
       return this.service(originalConfig);
     } catch (e) {
       // 跳转登录页
-      window.location.href = "/login";
+      window.location.href = '/login';
       return Promise.reject(e);
     }
   }
@@ -109,13 +99,13 @@ class HttpRequest {
     config._retryCount = config._retryCount || 0;
 
     if (config._retryCount >= this.maxRetries) {
-      return Promise.reject(new Error("Max retries exceeded"));
+      return Promise.reject(new Error('Max retries exceeded'));
     }
 
     config._retryCount += 1;
     const delay = config._retryCount * this.retryDelay;
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         resolve(this.service(config));
       }, delay);
@@ -126,13 +116,13 @@ class HttpRequest {
   private handleError(error: AxiosError): Promise<never> {
     const status = error.response?.status;
     const messageMap: { [key: number]: string } = {
-      400: "请求参数错误",
-      403: "没有操作权限",
-      404: "资源不存在",
-      500: "服务器错误",
+      400: '请求参数错误',
+      403: '没有操作权限',
+      404: '资源不存在',
+      500: '服务器错误',
     };
 
-    const message = messageMap[status!] || error.message || "未知错误";
+    const message = messageMap[status!] || error.message || '未知错误';
 
     // 可在此处触发全局错误提示
     window.$message?.error(message);
@@ -146,15 +136,11 @@ class HttpRequest {
 
   // 封装快捷方法
   public get<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    return this.request({ method: "GET", url, ...config });
+    return this.request({ method: 'GET', url, ...config });
   }
 
-  public post<T = any>(
-    url: string,
-    data?: any,
-    config?: AxiosRequestConfig
-  ): Promise<T> {
-    return this.request({ method: "POST", url, data, ...config });
+  public post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+    return this.request({ method: 'POST', url, data, ...config });
   }
 
   // 其他方法同理...

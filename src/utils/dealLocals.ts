@@ -1,6 +1,6 @@
-import _ from "lodash";
+import _ from 'lodash';
 
-export function flattenLocales(obj, parentKey = "") {
+export function flattenLocales(obj, parentKey = '') {
   return _.transform(
     obj,
     (result, value, key: string) => {

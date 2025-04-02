@@ -1,9 +1,9 @@
-import { createHtmlPlugin } from "vite-plugin-html";
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 export default (env: Record<string, string>) => {
   return createHtmlPlugin({
     minify: true,
-    entry: "/src/main.ts",
+    entry: '/src/main.ts',
     inject: {
       data: {
         // index.html 标题

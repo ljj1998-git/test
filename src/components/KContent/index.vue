@@ -27,51 +27,50 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  title: {
-    type: String,
-  },
-  extraHeight: {
-    type: Number,
-    default: 0,
-  },
-});
+  const props = defineProps({
+    title: {
+      type: String,
+    },
+    extraHeight: {
+      type: Number,
+      default: 0,
+    },
+  });
 
-const boxRef = ref(null);
-const titleRef = ref(null);
-const contentRef = ref(null);
+  const boxRef = ref(null);
+  const titleRef = ref(null);
+  const contentRef = ref(null);
 
-const contentHeight = ref(0);
-// 计算content高度
-const calculateContentHeight = () => {
-  if (contentRef.value) {
-    const boxHeight = getComputedStyle(boxRef.value!).height;
-    const titleHeight = getComputedStyle(titleRef.value!).height;
-    // 16px为title marginbottom的高度 32为padding的高度
-    const titleTotal = removePxToNumber(titleHeight) + 16 + 32;
-    // 32px为content padding的高度
-    contentHeight.value =
-      removePxToNumber(boxHeight) - titleTotal - 32 - props.extraHeight;
-    console.log(boxHeight, titleHeight, contentHeight.value);
-  }
-};
+  const contentHeight = ref(0);
+  // 计算content高度
+  const calculateContentHeight = () => {
+    if (contentRef.value) {
+      const boxHeight = getComputedStyle(boxRef.value!).height;
+      const titleHeight = getComputedStyle(titleRef.value!).height;
+      // 16px为title marginbottom的高度 32为padding的高度
+      const titleTotal = removePxToNumber(titleHeight) + 16 + 32;
+      // 32px为content padding的高度
+      contentHeight.value = removePxToNumber(boxHeight) - titleTotal - 32 - props.extraHeight;
+      console.log(boxHeight, titleHeight, contentHeight.value);
+    }
+  };
 
-const removePxToNumber = (str: string) => {
-  return Number(str.replace("px", ""));
-};
+  const removePxToNumber = (str: string) => {
+    return Number(str.replace('px', ''));
+  };
 
-const windowStyle = useWindowSize();
-watch(
-  () => [windowStyle],
-  () => {
+  const windowStyle = useWindowSize();
+  watch(
+    () => [windowStyle],
+    () => {
+      calculateContentHeight();
+    },
+    {
+      immediate: true,
+      deep: true,
+    }
+  );
+  onMounted(() => {
     calculateContentHeight();
-  },
-  {
-    immediate: true,
-    deep: true,
-  }
-);
-onMounted(() => {
-  calculateContentHeight();
-});
+  });
 </script>

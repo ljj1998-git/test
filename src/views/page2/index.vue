@@ -46,19 +46,13 @@
         </n-form>
       </n-flex>
     </template>
-    <template #tree="{ size }"> 
-        
-    </template>
-    <template #content="{ size }"> </template>
+    <template #tree="{ size }"></template>
+    <template #content="{ size }"></template>
 
     <!-- {{ $t("text.add") }} -->
   </KContentTree>
 </template>
 
 <script lang="ts" setup>
-import {
-  AddOutline,
-  SearchOutline,
-  ChevronDownOutline,
-} from "@vicons/ionicons5";
+  import { AddOutline, SearchOutline, ChevronDownOutline } from '@vicons/ionicons5';
 </script>

@@ -1,15 +1,15 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
 interface TimerItem {
   key: string | number;
   duration: number;
-  type: "setTimeout" | "setInterval";
+  type: 'setTimeout' | 'setInterval';
   isRunning: boolean;
   interval?: NodeJS.Timeout;
   callback?: () => void;
 }
 
-export const useTimerStore = defineStore("timer", {
+export const useTimerStore = defineStore('timer', {
   state: () => ({
     timers: new Map<string | number, TimerItem>(),
   }),
@@ -17,13 +17,13 @@ export const useTimerStore = defineStore("timer", {
     /**
      * @description 获取计时器信息
      */
-    getTimer: (state) => (key: string | number) => {
+    getTimer: state => (key: string | number) => {
       return state.timers.get(key) ?? undefined;
     },
     /**
      * @description 获取计时器运行状态
      */
-    getTimerStatus: (state) => (key: string | number) => {
+    getTimerStatus: state => (key: string | number) => {
       return state.timers.get(key)?.isRunning ?? false;
     },
   },
@@ -31,7 +31,7 @@ export const useTimerStore = defineStore("timer", {
     /**
      * @description 新增定时器
      */
-    addTimer(timer: Omit<TimerItem, "isRunning" | "interval">) {
+    addTimer(timer: Omit<TimerItem, 'isRunning' | 'interval'>) {
       const existing = this.timers.get(timer.key);
       if (existing) {
         window.$message.error(`定时器:${timer.key} 已存在`);
@@ -75,12 +75,12 @@ export const useTimerStore = defineStore("timer", {
         return;
       }
       timer!.isRunning = true;
-      if (timer?.type === "setTimeout") {
+      if (timer?.type === 'setTimeout') {
         timer!.interval = setTimeout(() => {
           timer!.callback?.();
           this.clearTimer(key);
         }, timer!.duration);
-      } else if (timer?.type === "setInterval") {
+      } else if (timer?.type === 'setInterval') {
         timer!.interval = setInterval(() => {
           timer!.callback?.();
         }, timer!.duration);

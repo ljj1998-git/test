@@ -1,23 +1,23 @@
-import { defineStore } from "pinia";
-import { useDark } from "@vueuse/core";
-import { ELangueage, ELayout } from "@/constants";
-import _ from "lodash";
+import { defineStore } from 'pinia';
+import { useDark } from '@vueuse/core';
+import { ELangueage, ELayout } from '@/constants';
+import _ from 'lodash';
 
-export const useAppStore = defineStore("app", {
+export const useAppStore = defineStore('app', {
   state: (): IState => ({
     collapsed: false,
     breadcrumbList: [],
 
     isDark: useDark().value, // 1 白色 2暗黑
     /** 主题色 */
-    primaryColor: "#4343c7",
+    primaryColor: '#4343c7',
     /** 简体中文 zh_cn 英文 en */
     language: ELangueage.zh_cn,
     /** 布局模式 */
     layout: ELayout.default,
   }),
   persist: {
-    omit: ["breadcrumbList"],
+    omit: ['breadcrumbList'],
     storage: localStorage,
   },
   getters: {},
@@ -34,9 +34,9 @@ export const useAppStore = defineStore("app", {
     },
     removeBreadcrumbList(value: IBreadcrumbList) {
       if (this.breadcrumbList.length > 1) {
-        _.remove(this.breadcrumbList, (item) => item.path === value.path);
+        _.remove(this.breadcrumbList, item => item.path === value.path);
       } else {
-        window.$message.error("不可删除");
+        window.$message.error('不可删除');
       }
     },
     /** 设置theme */
@@ -46,12 +46,12 @@ export const useAppStore = defineStore("app", {
     /** 设置语言 */
     setLanguage(language: ELangueage) {
       this.language = language;
-      localStorage.setItem("language", language);
+      localStorage.setItem('language', language);
     },
     /** 设置主题色 */
     setPrimaryColor(color: string) {
       this.primaryColor = color;
-      document.body.style.setProperty("--primary-color", color);
+      document.body.style.setProperty('--primary-color', color);
     },
     /** 设置布局模式 */
     setLayout(layout: ELayout) {

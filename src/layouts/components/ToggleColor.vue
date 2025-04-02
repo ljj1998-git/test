@@ -5,19 +5,19 @@
         id="theme-setting"
         class="h-6 w-6"
         :value="primaryColor"
-        :on-update:value="(v) => setPrimaryColor(v)"
+        :on-update:value="v => setPrimaryColor(v)"
         :render-label="() => ''"
       />
     </template>
-    {{ $t("layout.primaryColor") }}
+    {{ $t('layout.primaryColor') }}
   </n-tooltip>
 </template>
 
 <script setup>
-import { useAppStore } from "@/stores";
+  import { useAppStore } from '@/stores';
 
-const { setPrimaryColor } = useAppStore();
-const { primaryColor } = storeToRefs(useAppStore());
+  const { setPrimaryColor } = useAppStore();
+  const { primaryColor } = storeToRefs(useAppStore());
 
-setPrimaryColor(primaryColor.value);
+  setPrimaryColor(primaryColor.value);
 </script>

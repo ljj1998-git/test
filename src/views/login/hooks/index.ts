@@ -1,8 +1,8 @@
-import { loginApi, getCaptchaApi } from "@/apis/login";
-import { encryptByAes } from "@/utils/encrypt";
-import { tryCatch } from "@/utils/tryCatch";
-import { ILoginForm } from "../types";
-import _ from "lodash";
+import { loginApi, getCaptchaApi } from '@/apis/login';
+import { encryptByAes } from '@/utils/encrypt';
+import { tryCatch } from '@/utils/tryCatch';
+import { ILoginForm } from '../types';
+import _ from 'lodash';
 
 export const useLogin = async (datas: ILoginForm) => {
   const params = _.cloneDeep(datas);
@@ -11,7 +11,7 @@ export const useLogin = async (datas: ILoginForm) => {
 };
 
 export const useGetCaptcha = async () => {
-  let captchaUrl = "";
+  let captchaUrl = '';
   captchaUrl = await tryCatch(getCaptchaApi);
   console.log(captchaUrl);
 

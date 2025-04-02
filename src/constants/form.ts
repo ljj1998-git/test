@@ -2,17 +2,17 @@
  * @description 抽屉标题type值
  */
 export enum EDrawerTitleType {
-  "新增" = 0,
-  "编辑" = 1,
-  "查看" = 2,
+  '新增' = 0,
+  '编辑' = 1,
+  '查看' = 2,
 }
 
 /**
  * @description 单选框状态
  */
 export const RadioStatusType = {
-  1: { label: "启用", type: "success", value: 1 },
-  0: { label: "禁用", type: "error", value: 0 },
+  1: { label: '启用', type: 'success', value: 1 },
+  0: { label: '禁用', type: 'error', value: 0 },
 };
 
 export const RadioStatus = [

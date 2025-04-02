@@ -28,7 +28,6 @@
       "@/*": ["src/*"],
       "@t/*": ["types/*"]
     },
-
     "types": ["naive-ui/volar"] // 启用 Volar 类型支持
   },
   "include": [

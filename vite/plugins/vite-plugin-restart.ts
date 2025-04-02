@@ -1,7 +1,7 @@
-import ViteRestart from "vite-plugin-restart";
+import ViteRestart from 'vite-plugin-restart';
 
 export default () => {
   return ViteRestart({
-    restart: ["vite.config.[jt]s", ".env.development"],
+    restart: ['vite.config.[jt]s', '.env.development'],
   });
 };

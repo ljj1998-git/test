@@ -1,7 +1,7 @@
-import Base64 from "crypto-js/enc-base64";
-import UTF8 from "crypto-js/enc-utf8";
-import md5 from "crypto-js/md5";
-import CryptoJS from "crypto-js";
+import Base64 from 'crypto-js/enc-base64';
+import UTF8 from 'crypto-js/enc-utf8';
+import md5 from 'crypto-js/md5';
+import CryptoJS from 'crypto-js';
 
 export function encodeByBase64(txt: string) {
   return UTF8.parse(txt).toString(Base64);
@@ -15,8 +15,8 @@ export function encryptByMd5(txt: string) {
   return md5(txt).toString();
 }
 
-const key = "U6KXl21KHL6D1H9X";
-const iv = "0102030405060708";
+const key = 'U6KXl21KHL6D1H9X';
+const iv = '0102030405060708';
 
 export function encryptByAes(word: string) {
   const _key = CryptoJS.enc.Utf8.parse(key); //key(固定约束)

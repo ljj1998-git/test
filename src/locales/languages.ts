@@ -1,5 +1,5 @@
-import { ELayout } from "@/constants";
-import { flattenLocales } from "@/utils/dealLocals";
+import { ELayout } from '@/constants';
+import { flattenLocales } from '@/utils/dealLocals';
 
 /**
  * @description 语言包
@@ -12,23 +12,23 @@ const locales = {
   common: {
     /** 按钮 */
     button: {
-      add: ["新增", "add"],
-      edit: ["编辑", "edit"],
-      expand: ["展开", "expand"],
-      collapse: ["收起", "collapse"],
+      add: ['新增', 'add'],
+      edit: ['编辑', 'edit'],
+      expand: ['展开', 'expand'],
+      collapse: ['收起', 'collapse'],
     },
   },
   layout: {
-    fullScreen: ["全屏", "full screen"],
-    primaryColor: ["主题色", "primary color"],
-    layout: ["布局", "layout"],
-    [ELayout.default]: ["默认布局", "default"],
-    [ELayout.simple]: ["简约布局", "simple"],
-    [ELayout.full]: ["全面布局", "full"],
+    fullScreen: ['全屏', 'full screen'],
+    primaryColor: ['主题色', 'primary color'],
+    layout: ['布局', 'layout'],
+    [ELayout.default]: ['默认布局', 'default'],
+    [ELayout.simple]: ['简约布局', 'simple'],
+    [ELayout.full]: ['全面布局', 'full'],
   },
   /** 首页 */
   home: {
-    title: ["首页", "home"],
+    title: ['首页', 'home'],
   },
 };
 

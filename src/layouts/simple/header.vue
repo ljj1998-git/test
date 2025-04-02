@@ -21,16 +21,16 @@
   </n-grid>
 </template>
 <script lang="ts" setup>
-import Menu from "./menu.vue";
-import ToggleColor from "../components/ToggleColor.vue";
-import ToggleTheme from "../components/ToggleTheme.vue";
-import ToggleLoacle from "../components/ToggleLoacle.vue";
-import FullScreen from "../components/FullScreen.vue";
-import UserAvatar from "../components/UserAvatar.vue";
-import SetLayout from "../components/SetLayout.vue";
+  import Menu from './menu.vue';
+  import ToggleColor from '../components/ToggleColor.vue';
+  import ToggleTheme from '../components/ToggleTheme.vue';
+  import ToggleLoacle from '../components/ToggleLoacle.vue';
+  import FullScreen from '../components/FullScreen.vue';
+  import UserAvatar from '../components/UserAvatar.vue';
+  import SetLayout from '../components/SetLayout.vue';
 
-const isClient = ref(false);
-onMounted(() => {
-  isClient.value = true;
-});
+  const isClient = ref(false);
+  onMounted(() => {
+    isClient.value = true;
+  });
 </script>

@@ -1,4 +1,4 @@
-import { IResponse } from "./common";
+import { IResponse } from './common';
 
 export interface DictionaryList extends IResponse {
   id: string;

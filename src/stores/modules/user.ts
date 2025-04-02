@@ -1,10 +1,10 @@
-import { defineStore } from "pinia";
-import _ from "lodash";
+import { defineStore } from 'pinia';
+import _ from 'lodash';
 
-export const useUserStore = defineStore("user", {
+export const useUserStore = defineStore('user', {
   state: (): IState => ({
     info: {
-      roleName:"超级管理员"
+      roleName: '超级管理员',
     },
   }),
   getters: {},

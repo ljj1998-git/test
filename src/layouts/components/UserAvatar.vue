@@ -15,7 +15,7 @@
         </n-icon>
       </n-avatar>
       <div class="flex-col flex-shrink-0 items-center">
-        <span>{{ info.username || "未登录" }}</span>
+        <span>{{ info.username || '未登录' }}</span>
         <span class="opacity-50">[{{ info.roleName }}]</span>
       </div>
     </div>
@@ -23,22 +23,22 @@
 </template>
 
 <script setup lang="ts">
-import { ExitOutline, Person, PersonOutline } from "@vicons/ionicons5";
-import { useUserStore } from "@/stores";
-import { NIcon } from "naive-ui";
+  import { ExitOutline, Person, PersonOutline } from '@vicons/ionicons5';
+  import { useUserStore } from '@/stores';
+  import { NIcon } from 'naive-ui';
 
-const { info } = storeToRefs(useUserStore());
+  const { info } = storeToRefs(useUserStore());
 
-const options = reactive([
-  {
-    label: "个人资料",
-    key: "profile",
-    icon: () => h(NIcon, { size: 20 }, { default: () => h(PersonOutline) }),
-  },
-  {
-    label: "退出登录",
-    key: "logout",
-    icon: () => h(NIcon, { size: 20 }, { default: () => h(ExitOutline) }),
-  },
-]);
+  const options = reactive([
+    {
+      label: '个人资料',
+      key: 'profile',
+      icon: () => h(NIcon, { size: 20 }, { default: () => h(PersonOutline) }),
+    },
+    {
+      label: '退出登录',
+      key: 'logout',
+      icon: () => h(NIcon, { size: 20 }, { default: () => h(ExitOutline) }),
+    },
+  ]);
 </script>

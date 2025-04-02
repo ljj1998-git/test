@@ -1,9 +1,9 @@
-import http from "@/utils/request";
+import http from '@/utils/request';
 
 export const getCaptchaApi = () => {
-  return http.get("/user/getCaptcha");
+  return http.get('/user/getCaptcha');
 };
 
-export const loginApi = (params) => {
-  return http.post("/user/login", params);
+export const loginApi = params => {
+  return http.post('/user/login', params);
 };

@@ -1,4 +1,4 @@
-import Removelog from "vite-plugin-removelog";
+import Removelog from 'vite-plugin-removelog';
 
 export default function creatRemovelogPlugin() {
   return Removelog();

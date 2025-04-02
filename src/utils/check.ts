@@ -6,6 +6,4 @@ export function checkArray(arr: any[]): boolean {
   }
 }
 
-export function checkArrayReturn(arr: any[]) {
-    
-}
+export function checkArrayReturn(arr: any[]) {}

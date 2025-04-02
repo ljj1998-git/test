@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
-import _ from "lodash";
+import { defineStore } from 'pinia';
+import _ from 'lodash';
 
-export const useDictionaryStore = defineStore("dictionary", {
+export const useDictionaryStore = defineStore('dictionary', {
   state: () => ({
     dictionarys: new Map(),
   }),
@@ -12,19 +12,16 @@ export const useDictionaryStore = defineStore("dictionary", {
       try {
         const res = [
           {
-            key: "status",
-            label: "状态",
+            key: 'status',
+            label: '状态',
             children: [
-              { value: "1", label: "启用" },
-              { value: "0", label: "启用" },
+              { value: '1', label: '启用' },
+              { value: '0', label: '启用' },
             ],
           },
         ];
-        res.forEach((item) => {
-          this.dictionarys.set(
-            item.key,
-            _.isEmpty(item.children) ? [] : item.children
-          );
+        res.forEach(item => {
+          this.dictionarys.set(item.key, _.isEmpty(item.children) ? [] : item.children);
         });
       } catch (e) {
         console.error(e);

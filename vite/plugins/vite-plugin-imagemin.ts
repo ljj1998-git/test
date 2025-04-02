@@ -1,4 +1,4 @@
-import viteImagemin from "vite-plugin-imagemin";
+import viteImagemin from 'vite-plugin-imagemin';
 
 export default () => {
   return viteImagemin({
@@ -18,11 +18,11 @@ export default () => {
     svgo: {
       plugins: [
         {
-          name: "removeViewBox",
+          name: 'removeViewBox',
           active: false,
         },
         {
-          name: "removeEmptyAttrs",
+          name: 'removeEmptyAttrs',
           active: false,
         },
       ],
