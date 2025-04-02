@@ -14,7 +14,7 @@
     "build": "vue-tsc --noEmit && vite build --mode development",
     "build:prod": "vue-tsc --noEmit && vite build --mode production",
     "lint": "vue-tsc --noEmit",
-    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md,less,sass,scss,sty}\"",
+    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md,less,sass,scss,sty}\""
   },
   "dependencies": {
     "@iconify/utils": "^2.3.0",
