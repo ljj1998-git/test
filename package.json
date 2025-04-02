@@ -14,7 +14,8 @@
     "build:prod": "vue-tsc --noEmit && vite build --mode production",
     "lint": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commitlint": "commitlint --config commitlint.config.js -e -V"
   },
   "dependencies": {
     "@iconify/utils": "^2.3.0",
