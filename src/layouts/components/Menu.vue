@@ -22,14 +22,10 @@
   import router from '@/router';
   const currentRoute = useRoute();
   const menuOptions: MenuOption[] = [
-    {
-      label: '页面1',
-      key: '/page1',
-    },
-    {
-      label: '页面2',
-      key: '/page2',
-    },
+    { label: '首页', key: '/' },
+    { label: '资料分析', key: '/analysis' },
+    { label: '页面1', key: '/page1' },
+    { label: '页面2', key: '/page2' },
   ];
 
   console.log(_.isEmpty(0));

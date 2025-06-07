@@ -7,7 +7,7 @@
             <div class="h-6 w-1.5 mr-2 bg-primary" />
             <n-h2 class="!my-0">{{ props.title }}</n-h2>
           </div>
-          <slot name="TitleRight"></slot>
+          <slot name="titleRight"></slot>
         </div>
         <transition
           name="slide"
@@ -15,7 +15,7 @@
           @after-enter="calculateContentHeight"
           @after-leave="calculateContentHeight"
         >
-          <slot name="TitleBottom"></slot>
+          <slot name="titleBottom"></slot>
         </transition>
       </div>
     </div>

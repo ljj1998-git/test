@@ -16,6 +16,27 @@ const router = createRouter({
       component: () => import('@/layouts/index.vue'),
       children: [
         {
+          path: '/',
+          component: () => import('@/views/home/index.vue'),
+          meta: {
+            title: '首页',
+          },
+        },
+        {
+          path: '/analysis',
+          component: () => import('@/views/analysis/index.vue'),
+          meta: {
+            title: '资料分析',
+          },
+        },
+        {
+          path: '/practice',
+          component: () => import('@/views/practice/index.vue'),
+          meta: {
+            title: '开始练习',
+          },
+        },
+        {
           path: '/page1',
           component: () => import('@/views/page1/index.vue'),
           meta: {

@@ -7,19 +7,6 @@ export default defineConfig({
   presets: [
     presetWind3(), // 类似 Tailwind 的原子化工具类
     presetAttributify(), // 支持属性化模式（如 `<div text-red>`）
-    presetWebFonts({
-      provider: 'bunny',
-      fonts: {
-        mono: 'DM Mono',
-        sans: 'DM Sans',
-        strong: 'Rubik Iso',
-        fast: 'Ubuntu',
-        hand: 'Caveat',
-        display: 'Tourney',
-        blackboard: 'Walter Turncoat',
-        flower: 'Indie Flower',
-      },
-    }),
     presetIcons({
       warn: true,
       prefix: ['i-'],
@@ -39,7 +26,7 @@ export default defineConfig({
     ['f-c-c', 'flex justify-center items-center'],
     ['flex-col', 'flex flex-col'],
     ['auto-bg', 'bg-white dark:bg-dark'],
-    ['auto-bg2', 'bg-[#f0f2f5] dark:bg-[#363c4e]'],
+    ['auto-bg2', 'bg-[#F5F7FA] dark:bg-[#363c4e]'],
     // 动画类
     /** 旋转180° */
     ['rotate-to-180', 'rotate-180 transition-transform duration-300 ease-in-out'],

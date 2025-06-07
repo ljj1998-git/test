@@ -1,6 +1,6 @@
 <template>
   <KContent title="页面标题" :extra-height="86">
-    <template #TitleRight>
+    <template #titleRight>
       <n-space>
         <n-button type="primary">
           <template #icon>
@@ -46,7 +46,7 @@
         </n-button>
       </n-space>
     </template>
-    <template #TitleBottom v-if="showSearch">
+    <template #titleBottom v-if="showSearch">
       <n-flex class="mt-4">
         <n-form inline label-placement="left">
           <n-grid :x-gap="16">
